@@ -23,7 +23,7 @@ public class Errores {
         return ResponseEntity.badRequest().body(errores);
     }
 
-    @ExceptionHandler(ValidacionDeIntegridad.class)
+    @ExceptionHandler(Validacion.class)
     public ResponseEntity<String> errorHandlerValidacionesIntegridad(Exception e){
         return ResponseEntity.badRequest().body(e.getMessage());
     }

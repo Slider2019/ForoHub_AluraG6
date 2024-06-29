@@ -2,7 +2,7 @@ package com.forohubalura.Forohub.dominio.topico;
 
 
 import com.forohubalura.Forohub.dominio.curso.DatosRespuestaCurso;
-import com.alura.forohub.domain.usuario.DatosRespuestaUsuario;
+import com.forohubalura.Forohub.dominio.usuario.DatosRespuestaUsuario;
 
 import java.util.Date;
 

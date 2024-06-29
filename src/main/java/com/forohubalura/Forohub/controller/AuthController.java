@@ -1,6 +1,5 @@
 package com.forohubalura.Forohub.controller;
 
-
 import com.forohubalura.Forohub.dominio.usuario.AuthData;
 import com.forohubalura.Forohub.dominio.usuario.Usuario;
 import com.forohubalura.Forohub.infraestructura.security.JWTTokenData;
@@ -25,20 +24,17 @@ public class AuthController {
     final
     TokenService tokenService;
 
-    public AutenticacionController(AuthenticationManager authenticationManager, TokenService tokenService) {
+    public AuthController(AuthenticationManager authenticationManager, TokenService tokenService) {
         this.authenticationManager = authenticationManager;
         this.tokenService = tokenService;
     }
 
     @PostMapping
     public ResponseEntity<JWTTokenData> autenticarUsuario(@RequestBody @Valid AuthData authData){
-        Authentication authToken = new UsernamePasswordAuthenticationToken(AuthData.nombre,
-                AuthData.clave());
+        Authentication authToken = new UsernamePasswordAuthenticationToken(authData.nombre(), authData.clave());
         var usuarioAutenticado = authenticationManager.authenticate(authToken);
         var JWTtoken = tokenService.generarToken((Usuario) usuarioAutenticado.getPrincipal());
         return ResponseEntity.ok(new JWTTokenData(JWTtoken));
 
     }
-}
-
 }

@@ -1,8 +1,8 @@
 package com.forohubalura.Forohub.controller;
 
-import com.alura.forohub.domain.curso.DatosRespuestaCurso;
-import com.alura.forohub.domain.topico.*;
-import com.alura.forohub.domain.usuario.DatosRespuestaUsuario;
+import com.forohubalura.Forohub.dominio.curso.DatosRespuestaCurso;
+import com.forohubalura.Forohub.dominio.topico.*;
+import com.forohubalura.Forohub.dominio.usuario.DatosRespuestaUsuario;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;
@@ -18,10 +18,10 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/topico")
 public class ControllerTopico {
-    private final TopicoRepository topicoRepository;
+    private final RepositoryTopico topicoRepository;
 
-    public TopicoController(TopicoRepository topicoRepository) {
-        this.topicoRepository = topicoRepository;
+    public ControllerTopico (RepositoryTopico repositoryTopico) {
+        this.topicoRepository = repositoryTopico;
     }
 
     @PostMapping
